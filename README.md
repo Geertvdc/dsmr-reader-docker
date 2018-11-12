@@ -1,9 +1,10 @@
-# DSMR Reader - Docker
+# DSMR Reader - Docker - ARM (Raspberry Pi support)
 
 A docker-compose file in order to start the following application in Docker:  
 dsmr-reader (https://github.com/dennissiemensma/dsmr-reader)
 
-ualex73 created a fork, but that's based on an old setup. Docker image sizes have been reduced drastically (old 380mb, new 70mb), both for dsmr and dsmrdb.
+This is a fork from https://github.com/xirixiz/dsmr-reader-docker that only supports x86/x64 to also be able to run this on the Raspberry Pi which has an ARM architecture.
+Thanks to Xirixiz for setting up most of the work!
 
 You should first add the user you run Docker with on your host file system to the dialout group:
 ```
@@ -12,7 +13,7 @@ sudo usermod -aG dialout $(whoami)
 
 # Docker-compose
 
-An example docker-compose.yaml file can be found here: https://raw.githubusercontent.com/xirixiz/dsmr-reader-docker/master/docker-compose.yaml
+An example docker-compose.yaml file can be found here: https://raw.githubusercontent.com/geertvdc/dsmr-reader-docker/master/docker-compose.yaml
 
 You should modify the docker-compose file with parameters that suit your environment, then run docker-compose afterwards:
 ```
@@ -77,9 +78,5 @@ docker run -it --rm -v dsmrdb:/volume -v /tmp:/backup alpine \
  ```
 
 # Important notes
-The current configuration has been tested on Ubuntu > 17.x and Manjaro > 17.x
-
-For Synology users:
-- Drivers are necessary: http://www.jadahl.com/drivers/
-- The docker-compose file must be set to version 3.2 or lower.
+The current configuration has been tested on Raspberry Pi 2 / 3b+
 
