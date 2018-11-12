@@ -1,8 +1,7 @@
-FROM debian:jessie
-LABEL maintainer="Bram van Dartel <root@rootrulez.com>"
+FROM arm32v7/python:3.7.1
+LABEL maintainer="Geert van der Cruijsen <geert@vdcruijsen.net>"
 
-ARG TAG="v1.23.0"
-ENV DEBIAN_FRONTEND="noninteractive"
+ARG TAG="v1.26.1"
 
 RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
     && echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
