@@ -1,0 +1,14 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+variables:
+  imageName: 'geertvdc/dsmr-reader-docker'
+
+steps:
+- script: |
+    version="$(grep -o 'ARG TAG="v[^"]*' Dockerfile | grep -o '[0-9][^"]*')"
+    docker build -f Dockerfile -t "$(imageName):$version" .
+
+  displayName: 'docker build'
