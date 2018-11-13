@@ -4,11 +4,11 @@ queue:
   name: home-automation
 
 variables:
-  imageName: 'geertvdc/dsmr-reader-docker'
+  imageName: 'geertvdc/dsmr-reader-docker-arm'
 
 steps:
 - script: |
     version="$(grep -o 'ARG TAG="v[^"]*' Dockerfile | grep -o '[0-9][^"]*')"
     docker build -f Dockerfile -t "$(imageName):$version" .
-
-  displayName: 'docker build'
+    docker push "$(imageName):$version"
+  displayName: 'Docker Build & Push'
