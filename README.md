@@ -1,5 +1,8 @@
 # DSMR Reader - Docker - ARM (Raspberry Pi support)
 
+[![Build Status](https://geertvdc.visualstudio.com/home-automation/_apis/build/status/dsmr-reader-docker-arm-CI)](https://geertvdc.visualstudio.com/home-automation/_build/latest?definitionId=26)
+[![Download docker image](https://img.shields.io/badge/Docker-Hub-blue.svg?logo=docker)](https://hub.docker.com/r/geertvdc/dsmr-reader-docker-arm/)
+
 A docker-compose file in order to start the following application in Docker:  
 dsmr-reader (https://github.com/dennissiemensma/dsmr-reader)
 
