@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   dsmrdb:
-    image: arm32v6/postgres-11-alpine
+    image: arm32v6/postgres:11-alpine
     container_name: dsmrdb
     volumes:
       - ./dsmrdb:/var/lib/postgresql/data
@@ -14,7 +14,7 @@ services:
       - POSTGRES_DB=dsmrreader
 
   dsmr:
-    image: geertvdc/dsmr-reader-docker-arm:1.26.1
+    image: geertvdc/dsmr-reader-docker-arm:1.26.1-alpine
     container_name: dsmr
     depends_on:
       - dsmrdb
