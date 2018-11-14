@@ -8,7 +8,7 @@ variables:
 
 steps:
 - script: |
-    version="$(grep -o 'ARG TAG="v[^"]*' Dockerfile | grep -o '[0-9][^"]*')"
-    docker build -f Dockerfile -t "$(imageName):$version" .
-    docker push "$(imageName):$version"
+    version="$(grep -w 'ENV DSMR_READER_VERSION' Dockerfile | grep -o '[0-9]*\.[0-9]*\.[0-9]*')"
+    docker build -f Dockerfile -t "$(imageName):${version}-alpine" .
+    docker push "$(imageName):${version}-alpine"
   displayName: 'Docker Build & Push'
